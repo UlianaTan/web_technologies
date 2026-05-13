@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="uk"> <!-- A11Y: Відсутній lang на <html> — пояснення браузер незнає номер сторінки-->  
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Олена Петренко — портфоліо</title>
+  <style>
+    body {
+      font-family: Georgia, serif;
+      max-width: 760px;
+      margin: 2rem auto;
+      padding: 1rem;
+      line-height: 1.5;
+    }
+    .btn {
+      background: #2050a0;
+      color: white;
+      padding: 10px 20px;
+      border-radius: 6px;
+      display: inline-block;
+      cursor: pointer;
+      margin: 4px 0;
+    }
+    .status-error { color: #d22; }
+    .status-ok { color: #2a8; }
+    .avatar { width: 160px; height: 160px; border-radius: 50%; }
+    a { color: #2050a0; }
+    h2 { border-bottom: 1px solid #ddd; padding-bottom: 6px; margin-top: 2rem; }
+  </style>
+</head>
+<body>
+
+  <h1>Привіт, мене звати Олена</h1>
+
+  <p>Я студентка 1-го курсу ІПЗ у НаУКМА. Тут — мої проєкти і контакти.</p>
+
+  <img class="avatar" src="me.jpg" alt="Фото Олени Пертренко"> <!-- A11Y ERROR: img без alt. Якщо фото не прогрузилось не зрозуміло, що там мало бути -->
+
+  <h2>Освіта</h2> <!-- A11Y ERROR: неправильний порядок заголовків. Після h1 має бути h2, а не h3 -->
+  <ul> 
+    <li>НаУКМА, бакалавр ІПЗ</li>
+    <li>Спеціалізація: веб-розробка</li>
+    <li>Рік випуску: 2027</li>
+    <li>Середній бал: 4.7.</li>
+  </ul>
+      <!-- A11Y ERROR: список зроблений через br. Для HTML це не список а просто текст з переносами -->
+
+  <h2>Проєкти</h2>
+
+  <h3>Інтернет-магазин випічки</h3>
+
+  <p>Платформа для замовлення домашньої випічки з доставкою.</p>
+
+  <p>Статус: <span class="status-error">Проблема: проблеми з оплатою</span>, <span class="status-ok">Успішно: доставка працює</span></p>
+  <!-- A11Y ERROR: статус передається тільки кольором. Для людини в якої проблеми з кольором це може бути не зрозуміло -->
+  <p>Технології:<br>
+    <ul> 
+    <li>React</li>
+    <li>Node.js</li>
+    <li>TypeScript</li>
+    <li>PostgreSQL</li>
+  </ul>
+  <!-- A11Y ERROR: список зроблений через br. Для HTML це не список а просто текст з переносами -->
+
+  <h3>Календар університетських подій</h3>
+
+  <p>Веб-застосунок для слідкування за подіями факультету. Інтегрований з Google Calendar.</p>
+
+  <img src="calendar-screenshot.png" alt="Скріншот календаря">  <!-- A11Y ERROR: img без alt. Якщо фото не прогрузилось не зрозуміло, що там мало бути -->
+
+  <h2>Контакти</h2>
+
+  <p>Зв'яжіться зі мною:</p>
+
+  <button onclick="alert('email')">Написати email</button>    <!-- A11Y ERROR: a без href і з onclick. Без herf посиданн не має адреси куди переходити, 
+  якщо ж це діяб тобто потрібно виконати код при натисканні,то виконистовуємо buuton -->
+
+  <button onclick="alert('Дзвонок')">Зателефонувати</button>   <!-- A11Y ERROR: <div onclick> як «кнопка» -->
+
+  <h2>Підписка на новини</h2>
+
+  <p>Залиште email і отримуйте щотижневі оновлення про мої проєкти:</p>
+
+  <input type="email" placeholder="Ваш email" label="Email"> <!-- A11Y ERROR: <input> без <label>,  placeholder зникає і стає не зрозуміло, що вводити в поле-->
+  <button type="submit">Підписатися</button> <!-- A11Y ERROR: <button> без type атрибута, буде виконувати submit за замовчуванням-->
+
+  <h2>Соцмережі</h2>
+
+  <p>
+    <a href="https://github.com/olenapetrenko" target="_blank" rel="noopener">GitHub,</a>
+    &middot;
+    <a href="https://linkedin.com/in/olenapetrenko" target="_blank" rel="noopener">LinkedIn</a>
+    &middot;
+    <a href="https://twitter.com/olenap" target="_blank" rel="noopener">Twitter</a>
+  </p>
+<!-- A11Y ERROR: target="_blank" без rel="noopener". Нова вкладка може отримати доступ до попередньої сторінки-->
+  <hr>
+  <p style="text-align: center; color: #888;">&copy; 2026 Олена Петренко</p>
+
+</body>
+</html>
