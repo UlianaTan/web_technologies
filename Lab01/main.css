@@ -1,0 +1,305 @@
+body{
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    background-color: #b1b1b1;
+}
+
+.page{
+    width: 900px;
+    margin: 40px auto;
+    display: flex;
+    gap: 20px;
+    position: relative;
+}
+
+.page-title{
+    position: absolute;
+    top: -60px;
+    left: 0;
+}
+
+.left_card{
+    width: 600px;
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+}
+#product_name{
+    padding: 10px;
+    width: 300px;
+}
+
+.shopping-list {
+    margin-top: 20px;
+}
+
+.product-row {
+    display: grid;
+
+    grid-template-columns: 180px 180px 140px 40px;
+
+    align-items: center;
+
+    column-gap: 24px;
+
+    border-top: 1px solid #ddd;
+    padding: 12px 0;
+}
+
+.bought-row {
+    grid-template-columns: 160px 150px 120px;
+    opacity: 0.7;
+}
+
+.product-name,
+.bought-product-name {
+    width: 150px;
+}
+
+.product-name-editiable {
+    width: 128px;
+    height: 28px;
+
+    padding: 0 8px;
+
+    border: 1px solid #4da3ff;
+    border-radius: 2px;
+
+    outline: none;
+
+    box-shadow: 0 0 4px rgba(77, 163, 255, 0.8);
+
+    font-size: 14px;
+}
+
+.bought-product-name{
+    text-decoration: line-through;
+}
+
+.product-amount,
+.bought-product-amount {
+    width: 32px;
+    height: 32px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background-color: #eeeeee;
+    border-radius: 6px;
+
+    font-weight: bold;
+    color: #555;
+}
+
+.controls {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+.add {
+    height: 40px;
+    width: 150px;
+    padding: 0 18px;
+    background-color: rgb(64, 133, 251);
+    color: white;
+    border: none;
+    border-radius: 4px;
+    font-weight: bold;
+    box-shadow: 0 3px 0 rgb(35, 90, 180);
+}
+.minus,
+.plus{
+    border: none;
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+}
+.minus {
+    background: #e57373;
+    color: white;
+}
+
+.plus {
+    background: #81c784;
+    color: white;
+}
+
+.disabled {
+    opacity: 0.4;
+}
+
+.status {
+    min-width: 100px;
+    padding: 9px 14px;
+    background-color: #eeeeee;
+    border: none;
+    border-radius: 7px;
+    box-shadow: 0 3px 0 #c8c8c8;
+    cursor: pointer;   
+}
+
+.delete-product {
+    width: 26px;
+    height: 26px;
+    background-color: #e53935;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+
+.right_card {
+    width: 250px;
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+}
+
+.right_card h2 {
+    margin: 0;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #ddd;
+}
+
+.bought {
+    margin-top: 22px !important;
+    padding-top: 12px;
+    border-top: 1px solid #ddd;
+}
+
+.product-item,
+.product-item-bought {
+    display: inline-block;
+    background-color: #ddd;
+    padding: 6px 10px;
+    border-radius: 5px;
+    margin: 5px;
+}
+
+.product-item-bought {
+    text-decoration: line-through;
+    color: gray;
+}
+
+.amount-left-product {
+    background-color: orange;
+    color: white;
+    padding: 3px 7px;
+    border-radius: 50%;
+    margin-left: 5px;
+}
+
+.author-badge {
+    position: fixed;
+    left: 20px;
+    bottom: 0px;
+    min-width: 220px;
+    text-align: center;
+
+    background-color: #4b006e;
+    color: white;
+    padding: 12px 22px;
+    border-radius: 10px 10px 0 0;
+
+    font-weight: bold;
+    cursor: pointer;
+
+    transition: transform 0.4s ease, background-color 0.4s ease;
+}
+
+.author-badge::after {
+    content: attr(data-author);
+
+    position: absolute;
+
+    left: 0;
+    top: 100%;
+
+    width: 100%;
+    box-sizing: border-box;
+
+    padding: 12px 22px;
+
+    background-color: inherit;
+    color: white;
+
+    border-radius: 0 0 10px 10px;
+
+    opacity: 0;
+
+    transition: opacity 0.2s ease;
+}
+
+.author-badge:hover {
+    transform: translateY(-72px);
+    background-color: #3b17a8;
+}
+
+.author-badge:hover::after {
+    opacity: 1;
+}
+@media print {
+    .author-badge {
+        background-color: white;
+        color: black;
+        border: 2px solid #4b006e;
+        transform: none;
+    }
+    .author-badge::after{
+        display: none;
+    }
+    .author-badge {
+        font-size: 0;
+    }
+    .author-badge::before {
+    content: "Танчук Уляна";
+    font-size: 16px;
+    }
+}
+
+@media(max-width: 650px){
+    .page{
+        width: 100%;
+        flex-direction: column;
+        margin: 70px auto 20px;
+    }
+    .left_card, .right_card{
+        width: 100%;
+    }
+}
+button[data-tooltip] {
+    position: relative;
+}
+
+button[data-tooltip]::after{
+    content: attr(data-tooltip);
+    position: absolute;
+    left: 50%;
+    bottom: 40px;
+    transform: translateX(-50%) scale(0.7);
+
+    background-color: #4b006e;
+    color: white;
+
+    padding: 8px 12px;
+    border-radius: 8px;
+
+    white-space: nowrap;
+    font-size: 12px;
+
+    opacity: 0;
+    pointer-events: none;
+
+    transition: opacity 0.3s ease,
+}
+button[data-tooltip]:hover::after {
+    opacity: 1;
+
+    transform: translateX(-50%) scale(1);
+}

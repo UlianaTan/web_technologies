@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <title>My Page</title>
+
+
+    <link rel="stylesheet" type="text/css" href="main.css" />
+</head>
+<body>
+	<main class="page">
+        <h1 class="page-title">Список покупок</h1>
+        <section class="left_card">
+            <label for="product_name">Назва товару</label>
+            <input id="product_name" type="text" placeholder="Нaзвва товару">
+            <button class="add" type="submit" data-tooltip="Додати товар">Додати</button>
+            <div class="shopping-list">
+                <div class="product-row bought-row">
+                    <span class="bought-product-name">Помідори</span>
+                    <span class="bought-product-amount">2</span>
+                    <button class="status" type="button" data-tooltip="Повернути товар у список">Не куплено</button>
+                </div>
+                <div class="product-row">
+                   <span class="product-name">Печиво</span>
+                   <div class="controls">
+                    <button class="minus" type="button" data-tooltip="Зменшити кількість">-</button>
+                    <span class="product-amount">2</span>
+                    <button class="plus" type="button" data-tooltip="Збільшити кількість">+</button>
+                   </div>
+                   <button class="status" type="button" data-tooltip="Позначити як куплено">Куплено</button>
+                   <button class="delete-product" type="button" data-tooltip="Видалити товар">×</button>
+                </div>
+                <div class="product-row">
+                   <input class="product-name-editiable" type="text" value="Сир"></input>
+                   <div class="controls">
+                    <button class="minus disabled" type="button" data-tooltip="Зменшити кількість">-</button>
+                    <span class="product-amount">1</span>
+                    <button class="plus" type="button" data-tooltip="Збільшити кількість">+</button>
+                   </div>
+                   <button class="status" type="button" data-tooltip="Позначити як куплено">Куплено</button>
+                   <button class="delete-product" type="button" data-tooltip="Видалити товар">×</button>
+            </div>
+        </section>
+        <aside class="right_card">
+            <h2 class="left">Залишилося</h2>
+            <span class="product-item">
+                Печиво
+                <span class="amount-left-product">2</span>
+            </span>
+            <span class="product-item">
+                Сир
+                <span class="amount-left-product">1</span>
+            </span>
+            <h2 class="bought">Куплено</h2>
+            <span class="product-item-bought">
+                Помідори
+                <span class="amount-left-product">2</span>
+            </span>
+        </aside>
+        <div class="author-badge" data-author="Роботу виконала: Танчук Уляна">
+            BuyList
+        </div>
+    </main>
+</body>
+</html>
