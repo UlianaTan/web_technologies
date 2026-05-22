@@ -296,7 +296,7 @@ button[data-tooltip]::after{
     opacity: 0;
     pointer-events: none;
 
-    transition: opacity 0.3s ease,
+    transition: opacity 0.3s ease, transform 0.3s ease;
 }
 button[data-tooltip]:hover::after {
     opacity: 1;
