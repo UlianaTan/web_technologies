@@ -3,7 +3,7 @@ const addButton = document.querySelector(".add");
 const shoppingList = document.querySelector(".shopping-list");
 const rightCard = document.querySelector(".right_card");
 
-let products = [
+let products = JSON.parse(localStorage.getItem("products")) || [
     {
         id: 1,
         name: "Помідори",
@@ -26,6 +26,9 @@ let products = [
         editing: false
     }
 ];
+function saveProducts() {
+    localStorage.setItem("products", JSON.stringify(products));
+}
 
 function addProduct() {
     const name = input.value.trim();
@@ -56,6 +59,8 @@ input.addEventListener("keydown", event => {
 });
 
 function renderProducts(){
+    saveProducts();
+
     shoppingList.innerHTML = "";
    
     products.forEach(product => {
@@ -76,7 +81,7 @@ function renderProducts(){
                         : `<span class="product-name" data-action="start-edit" data-id="${product.id}">${product.name}</span>`
                 }
                 <div class="controls">
-                    <button class = "minus ${product.amount === 1? "disabled" : ""}" data-action="minus" type="button" data-tooltip="Зменшити кількість" data-id="${product.id}">-</button>
+                    <button class = "minus ${product.amount === 1? "disabled" : ""}" ${product.amount === 1 ? "disabled" : ""} data-action="minus" type="button" data-tooltip="Зменшити кількість" data-id="${product.id}">-</button>
                     <span class="product-amount">${product.amount}</span>
                     <button class="plus" data-action="plus" type="button" data-tooltip="Збільшити кількість" data-id="${product.id}">+</button>
                 </div>
@@ -86,6 +91,11 @@ function renderProducts(){
         }
         shoppingList.appendChild(row);
     });
+    const editInput = shoppingList.querySelector(".product-name-editiable");
+    if (editInput) {
+        editInput.focus();
+        editInput.setSelectionRange(editInput.value.length, editInput.value.length);
+    }
     renderStats();
 }
 
